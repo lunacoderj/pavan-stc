@@ -42,9 +42,10 @@ export function Navbar() {
         {/* Desktop Nav */}
         <nav className={styles.desktopNav}>
           <Link to="/" className={styles.navLink}>Home</Link>
-          <a href="/#about" className={styles.navLink}>About</a>
           <a href="/#services" className={styles.navLink}>Services</a>
-          <a href="/#testimonials" className={styles.navLink}>Reviews</a>
+          <a href="/#coverage" className={styles.navLink}>Coverage</a>
+          <a href="/#gallery" className={styles.navLink}>Gallery</a>
+          <a href="/#about" className={styles.navLink}>About</a>
           <a href="/#contact" className={styles.navLink}>Contact</a>
         </nav>
 
@@ -75,9 +76,10 @@ export function Navbar() {
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
         <nav className={styles.mobileNav}>
           <Link to="/" className={styles.mobileNavLink} onClick={handleNavClick}>Home</Link>
-          <a href="/#about" className={styles.mobileNavLink} onClick={handleNavClick}>About</a>
           <a href="/#services" className={styles.mobileNavLink} onClick={handleNavClick}>Services</a>
-          <a href="/#testimonials" className={styles.mobileNavLink} onClick={handleNavClick}>Reviews</a>
+          <a href="/#coverage" className={styles.mobileNavLink} onClick={handleNavClick}>Coverage</a>
+          <a href="/#gallery" className={styles.mobileNavLink} onClick={handleNavClick}>Gallery</a>
+          <a href="/#about" className={styles.mobileNavLink} onClick={handleNavClick}>About</a>
           <a href="/#contact" className={styles.mobileNavLink} onClick={handleNavClick}>Contact</a>
           
           <div className={styles.mobileActionContainer}>
