@@ -72,7 +72,7 @@
 .title {
   margin-bottom: 24px;
   font-size: 5rem;
-  font-family: 'Oswald', 'Impact', sans-serif; /* Fallback for bold condensed */
+  font-family: var(--font-heading);
   font-weight: 800;
   line-height: 1;
   color: #ffffff;
