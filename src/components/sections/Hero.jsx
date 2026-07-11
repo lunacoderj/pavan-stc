@@ -25,10 +25,8 @@ export function Hero() {
           </div>
 
           <h1 className={styles.title}>
-            CLEAN TANK.<br/>
-            <span className={styles.highlight}>CLEAN LIFE.</span><br/>
-            COMPLETE PEACE<br/>
-            OF MIND.
+            Clean Tank,<br/>
+            <span className={styles.highlight}>Healthy Life!</span>
           </h1>
 
           <p className={styles.subtitle}>
@@ -61,19 +59,31 @@ export function Hero() {
         <div className={styles.floatingBoxLeft}>
           <div className={styles.featureItem}>
             <Clock size={32} className={styles.featureIcon} />
-            <span className={styles.featureTitle}>24/7<br/>SERVICE</span>
-          </div>
-          <div className={styles.featureItem}>
-            <Settings size={32} className={styles.featureIcon} />
-            <span className={styles.featureTitle}>MODERN<br/>EQUIPMENT</span>
+            <div className={styles.featureTextWrapper}>
+              <span className={styles.featureTitle}>24/7 SERVICE</span>
+              <span className={styles.featureDesc}>We are always here for you</span>
+            </div>
           </div>
           <div className={styles.featureItem}>
             <ShieldCheck size={32} className={styles.featureIcon} />
-            <span className={styles.featureTitle}>TRAINED<br/>EXPERTS</span>
+            <div className={styles.featureTextWrapper}>
+              <span className={styles.featureTitle}>EXPERT TEAM</span>
+              <span className={styles.featureDesc}>Trained & Experienced Professionals</span>
+            </div>
+          </div>
+          <div className={styles.featureItem}>
+            <Settings size={32} className={styles.featureIcon} />
+            <div className={styles.featureTextWrapper}>
+              <span className={styles.featureTitle}>ADVANCED EQUIPMENT</span>
+              <span className={styles.featureDesc}>Powerful Machines for Deep Cleaning</span>
+            </div>
           </div>
           <div className={styles.featureItem}>
             <Leaf size={32} className={styles.featureIcon} />
-            <span className={styles.featureTitle}>ECO<br/>FRIENDLY</span>
+            <div className={styles.featureTextWrapper}>
+              <span className={styles.featureTitle}>SAFE & HYGIENIC</span>
+              <span className={styles.featureDesc}>Your Safety, Our Priority</span>
+            </div>
           </div>
         </div>
 
