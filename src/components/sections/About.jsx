@@ -66,7 +66,7 @@ export function About() {
               </div>
             </div>
 
-            <CTAButton variant="primary" href="#services" className={styles.ctaBtn}>
+            <CTAButton variant="primary" href="/about" className={styles.ctaBtn}>
               Learn More About Us <ArrowRight size={18} />
             </CTAButton>
           </div>

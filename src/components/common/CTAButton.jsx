@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './CTAButton.module.css';
 
 export function CTAButton({ 
@@ -13,6 +14,15 @@ export function CTAButton({
   const buttonClass = `${styles.button} ${styles[variant]} ${className}`;
   
   if (href) {
+    if (href.startsWith('/')) {
+      // Use Link for internal routes
+      return (
+        <Link to={href} className={buttonClass} {...props}>
+          {children}
+        </Link>
+      );
+    }
+    // Use anchor tag for external links or hash links
     return (
       <a href={href} className={buttonClass} {...props}>
         {children}
