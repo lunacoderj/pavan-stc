@@ -54,19 +54,26 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 280px);
+  grid-auto-flow: dense;
+  auto-rows: 280px;
   gap: 20px;
   width: 100%;
 }
 
-.videoCard {
+.mediaCard {
   position: relative;
   border-radius: var(--radius-card);
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  group: hover;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mediaCard:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(0, 168, 232, 0.4);
 }
 
 .large {
@@ -79,21 +86,26 @@
   grid-row: span 1;
 }
 
+.tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
 .small {
   grid-column: span 1;
   grid-row: span 1;
 }
 
-.videoPlayer {
+.mediaContent {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: brightness(0.85);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
+  filter: brightness(0.95);
 }
 
-.videoCard:hover .videoPlayer {
-  transform: scale(1.05);
+.mediaCard:hover .mediaContent {
+  transform: scale(1.08);
   filter: brightness(0.6);
 }
 
@@ -106,43 +118,53 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  background: linear-gradient(to top, rgba(3, 43, 67, 0.8) 0%, rgba(3, 43, 67, 0.3) 100%);
+  transition: opacity 0.4s ease;
+  background: linear-gradient(to top, rgba(2, 12, 27, 0.9) 0%, rgba(2, 12, 27, 0.2) 100%);
 }
 
-.videoCard:hover .overlay {
+.mediaCard:hover .overlay {
   opacity: 1;
 }
 
-.playIcon {
-  width: 60px;
-  height: 60px;
+.playIcon, .imageIcon {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: var(--color-primary);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   transform: translateY(20px);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 25px rgba(26, 122, 46, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 168, 232, 0.4);
 }
 
-.videoCard:hover .playIcon {
+.imageIcon {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.mediaCard:hover .playIcon,
+.mediaCard:hover .imageIcon {
   transform: translateY(0);
 }
 
-.videoTitle {
+.mediaTitle {
   color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 16px;
   transform: translateY(20px);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-delay: 0.05s;
+  letter-spacing: 0.5px;
 }
 
-.videoCard:hover .videoTitle {
+.mediaCard:hover .mediaTitle {
   transform: translateY(0);
 }
 
@@ -150,8 +172,7 @@
 @media (max-width: 992px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    auto-rows: 250px;
+    auto-rows: 220px;
   }
   
   .large {
@@ -162,6 +183,11 @@
   .wide {
     grid-column: span 2;
     grid-row: span 1;
+  }
+  
+  .tall {
+    grid-column: span 1;
+    grid-row: span 2;
   }
   
   .small {
@@ -176,7 +202,7 @@
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .grid {
@@ -184,7 +210,7 @@
     auto-rows: 250px;
   }
 
-  .large, .wide, .small {
+  .large, .wide, .small, .tall {
     grid-column: span 1;
     grid-row: span 1;
   }

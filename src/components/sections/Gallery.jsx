@@ -1,12 +1,23 @@
-import React, { useRef } from 'react';
-import { Play } from 'lucide-react';
+import React from 'react';
+import { Play, Image as ImageIcon } from 'lucide-react';
 import styles from './Gallery.module.css';
 
-const videos = [
-  { id: 1, src: '/workig1.mp4', type: 'large', title: 'Deep Cleaning Operations' },
-  { id: 2, src: '/working 2.mp4', type: 'wide', title: 'High-Pressure Jetting' },
-  { id: 3, src: '/working3.mp4', type: 'small', title: 'Safety First' },
-  { id: 4, src: '/working4.mp4', type: 'small', title: 'Expert Team' }
+const galleryItems = [
+  // Block 1 (Rows 1 & 2)
+  { id: 1, type: 'video', src: '/workig1.mp4', size: 'large', title: 'Deep Cleaning Operations' },
+  { id: 2, type: 'image', src: '/apartmentservice.png', size: 'tall', title: 'Apartment Complexes' },
+  { id: 3, type: 'image', src: '/service_septic_tank_1783733470515.png', size: 'small', title: 'Septic Tank Pumping' },
+  { id: 4, type: 'video', src: '/working 2.mp4', size: 'small', title: 'High-Pressure Jetting' },
+  
+  // Block 2 (Row 3)
+  { id: 5, type: 'image', src: '/poster.png', size: 'wide', title: 'Our Modern Fleet' },
+  { id: 6, type: 'image', src: '/services.png', size: 'wide', title: 'Comprehensive Care' },
+
+  // Block 3 (Rows 4 & 5)
+  { id: 7, type: 'video', src: '/working3.mp4', size: 'tall', title: 'Safety First' },
+  { id: 8, type: 'video', src: '/working4.mp4', size: 'large', title: 'Expert Team' },
+  { id: 9, type: 'image', src: '/service_manhole_cleaning_1783733481452.png', size: 'small', title: 'Manhole Cleaning' },
+  { id: 10, type: 'image', src: '/website.png', size: 'small', title: 'Digital Booking' },
 ];
 
 export function Gallery() {
@@ -22,29 +33,43 @@ export function Gallery() {
             See Our <span className={styles.highlight}>Professionals</span> At Work
           </h2>
           <p className={styles.description}>
-            Watch our expert team deliver high-quality cleaning and maintenance services across Visakhapatnam.
+            Explore our extensive gallery of septic tank cleaning, drain maintenance, and high-pressure jetting services across Visakhapatnam.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {videos.map((video) => (
+          {galleryItems.map((item) => (
             <div 
-              key={video.id} 
-              className={`${styles.videoCard} ${styles[video.type]}`}
+              key={item.id} 
+              className={`${styles.mediaCard} ${styles[item.size]}`}
             >
-              <video 
-                src={video.src} 
-                className={styles.videoPlayer}
-                autoPlay 
-                muted 
-                loop 
-                playsInline
-              />
+              {item.type === 'video' ? (
+                <video 
+                  src={item.src} 
+                  className={styles.mediaContent}
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className={styles.mediaContent}
+                />
+              )}
               <div className={styles.overlay}>
-                <div className={styles.playIcon}>
-                  <Play fill="currentColor" size={24} />
-                </div>
-                <h3 className={styles.videoTitle}>{video.title}</h3>
+                {item.type === 'video' ? (
+                  <div className={styles.playIcon}>
+                    <Play fill="currentColor" size={24} />
+                  </div>
+                ) : (
+                  <div className={styles.imageIcon}>
+                    <ImageIcon size={24} />
+                  </div>
+                )}
+                <h3 className={styles.mediaTitle}>{item.title}</h3>
               </div>
             </div>
           ))}
