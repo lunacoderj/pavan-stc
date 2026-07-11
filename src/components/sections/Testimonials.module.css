@@ -1,0 +1,202 @@
+.testimonialsSection {
+  padding: 100px 0;
+  background-color: var(--color-bg-base);
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.googleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-surface);
+  padding: 12px 24px;
+  border-radius: 100px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.googleIconWrapper {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.googleG {
+  color: #4285F4;
+  font-weight: 800;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+}
+
+.googleRating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ratingNumber {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.headerStars {
+  display: flex;
+  gap: 2px;
+}
+
+.reviewCount {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.title {
+  margin-bottom: 16px;
+}
+
+.highlight {
+  color: var(--color-primary);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+}
+
+/* Marquee Animation */
+.marquee {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 24px;
+  padding: 20px 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marqueeContent {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: scroll 60s linear infinite;
+}
+
+.marqueeContent:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 3px; /* Creates the outer ring gap */
+  border: 2px solid; /* Color applied inline */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+
+.authorName {
+  font-size: 1.05rem;
+  color: var(--color-text-primary);
+  margin: 0 0 4px 0;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.googleGIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
