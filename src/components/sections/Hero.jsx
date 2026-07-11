@@ -9,13 +9,16 @@ export function Hero() {
     <section className={styles.hero}>
       {/* Real Background Image */}
       <div className={styles.background}>
-        <img 
-          src="/herobg.png" 
-          alt="Pavan Septic Tank Cleaning in action" 
-          className={styles.bgImage}
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/poster.png" />
+          <img 
+            src="/herobg.png" 
+            alt="Pavan Septic Tank Cleaning in action" 
+            className={styles.bgImage}
+          />
+        </picture>
         <div className={styles.overlay}></div>
-      </div>
+      </div> 
 
       <div className={`container ${styles.container}`}>
         <div className={styles.content}>

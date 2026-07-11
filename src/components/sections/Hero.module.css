@@ -251,10 +251,6 @@
   .hero {
     padding-top: 100px;
   }
-  
-  .bgImage {
-    object-position: 35% center;
-  }
 
   .overlay {
     background: rgba(2, 8, 20, 0.4);
