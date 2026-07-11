@@ -5,19 +5,18 @@ import styles from './Gallery.module.css';
 const galleryItems = [
   // Block 1 (Rows 1 & 2)
   { id: 1, type: 'video', src: '/workig1.mp4', size: 'large', title: 'Deep Cleaning Operations' },
-  { id: 2, type: 'image', src: '/apartmentservice.png', size: 'tall', title: 'Apartment Complexes' },
-  { id: 3, type: 'image', src: '/service_septic_tank_1783733470515.png', size: 'small', title: 'Septic Tank Pumping' },
+  { id: 2, type: 'image', src: '/service_septic_tank_1783733470515.png', size: 'tall', title: 'Septic Tank Pumping' },
+  { id: 3, type: 'image', src: '/service_drain_line_1783733491651.png', size: 'small', title: 'Drain Line Cleaning' },
   { id: 4, type: 'video', src: '/working 2.mp4', size: 'small', title: 'High-Pressure Jetting' },
   
   // Block 2 (Row 3)
-  { id: 5, type: 'image', src: '/poster.png', size: 'wide', title: 'Our Modern Fleet' },
-  { id: 6, type: 'image', src: '/services.png', size: 'wide', title: 'Comprehensive Care' },
+  { id: 5, type: 'image', src: '/service_grease_trap_1783733503528.png', size: 'wide', title: 'Grease Trap Maintenance' },
+  { id: 6, type: 'image', src: '/service_manhole_cleaning_1783733481452.png', size: 'wide', title: 'Manhole Unblocking' },
 
-  // Block 3 (Rows 4 & 5)
-  { id: 7, type: 'video', src: '/working3.mp4', size: 'tall', title: 'Safety First' },
-  { id: 8, type: 'video', src: '/working4.mp4', size: 'large', title: 'Expert Team' },
-  { id: 9, type: 'image', src: '/service_manhole_cleaning_1783733481452.png', size: 'small', title: 'Manhole Cleaning' },
-  { id: 10, type: 'image', src: '/website.png', size: 'small', title: 'Digital Booking' },
+  // Block 3 (Row 4)
+  { id: 7, type: 'video', src: '/working3.mp4', size: 'wide', title: 'Safety Standards' },
+  { id: 8, type: 'video', src: '/working4.mp4', size: 'small', title: 'Expert Team' },
+  { id: 9, type: 'image', src: '/service_soak_pit_1783733517513.png', size: 'small', title: 'Soak Pit Digging' },
 ];
 
 export function Gallery() {
