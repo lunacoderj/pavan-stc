@@ -26,7 +26,7 @@
 .gradientMask {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 55%, rgba(255,255,255,0.2) 70%, transparent 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0.9) 55%, rgba(255,255,255,0.2) 90%, rgba(255,255,255,0.2) 100%, transparent 0%);
 }
 
 .contentWrapper {
@@ -276,7 +276,8 @@
   .bgContainer {
     position: relative;
     order: 2;
-    height: 350px;
+    height: auto;
+    width: 100%;
   }
   .contentWrapper {
     order: 1;
@@ -287,6 +288,8 @@
     display: none;
   }
   .bgImage {
-    object-position: right 20% center;
+    height: auto;
+    object-position: center;
+    display: block;
   }
 }
