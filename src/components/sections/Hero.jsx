@@ -1,114 +1,124 @@
 import React from 'react';
-import { PhoneCall, ArrowRight, Clock, Settings, ShieldCheck, Leaf, Home, Building2, Factory } from 'lucide-react';
+import { PhoneCall, ArrowRight, Clock, Users, Settings, ShieldCheck } from 'lucide-react';
 import { BUSINESS } from '../../config/business';
-import { CTAButton } from '../common/CTAButton';
 import styles from './Hero.module.css';
 
 export function Hero() {
   return (
-    <section className={styles.hero}>
-      {/* Real Background Image */}
-      <div className={styles.background}>
+    <section className={styles.heroSection}>
+      {/* Background Container */}
+      <div className={styles.bgContainer}>
         <picture>
           <source media="(max-width: 768px)" srcSet="/poster.png" />
           <img 
             src="/herobg.png" 
-            alt="Pavan Septic Tank Cleaning in action" 
+            alt="Pavan Septic Tank Cleaning" 
             className={styles.bgImage}
           />
         </picture>
-        <div className={styles.overlay}></div>
-      </div> 
-
-      <div className={`container ${styles.container}`}>
-        <div className={styles.content}>
-          <div className={styles.badge}>
-            <ShieldCheck size={16} className={styles.badgeIcon} />
-            <span>PROFESSIONAL. RELIABLE. HYGIENIC.</span>
-          </div>
-
-          <h1 className={styles.title}>
-            Clean Tank,<br/>
-            <span className={styles.highlight}>Healthy Life!</span>
-          </h1>
-
-          <p className={styles.subtitle}>
-            Professional septic tank cleaning and drain care services in Visakhapatnam with modern equipment and experienced team.
-          </p>
-
-          <div className={styles.actions}>
-            <CTAButton 
-              variant="primary" 
-              href={`tel:${BUSINESS.phone}`}
-              className={styles.mainBtn}
-            >
-              <PhoneCall size={20} />
-              CALL {BUSINESS.phone}
-            </CTAButton>
-            
-            <CTAButton 
-              variant="outlineGold" 
-              href="#services"
-              className={styles.secondaryBtn}
-            >
-              OUR SERVICES <ArrowRight size={18} />
-            </CTAButton>
-          </div>
-        </div>
+        {/* Gradient Mask Overlay */}
+        <div className={styles.gradientMask}></div>
       </div>
-
-      {/* Floating Info Boxes */}
-      <div className={`container ${styles.floatingBoxesContainer}`}>
-        <div className={styles.floatingBoxLeft}>
-          <div className={styles.featureItem}>
-            <Clock size={32} className={styles.featureIcon} />
-            <div className={styles.featureTextWrapper}>
-              <span className={styles.featureTitle}>24/7 SERVICE</span>
-              <span className={styles.featureDesc}>We are always here for you</span>
+      
+      {/* Content Grid */}
+      <div className={`container ${styles.contentWrapper}`}>
+        <div className={styles.contentGrid}>
+          
+          {/* Left Column: Content */}
+          <div className={styles.textContent}>
+            
+            {/* Tagline */}
+            <div className={styles.taglineWrapper}>
+              <p className={styles.tagline}>
+                Clean Tank, Healthy Life!
+              </p>
             </div>
+            
+            {/* Brand Name */}
+            <h1 className={styles.brandTitle}>
+              PAVAN
+            </h1>
+            
+            {/* Service Descriptor */}
+            <p className={styles.serviceSubtitle}>
+              SEPTIC CLEANERS
+            </p>
+            
+            {/* Trust Badge */}
+            <div className={styles.trustBadgeWrapper}>
+              <div className={styles.trustBadge}>
+                <p>Professional. Reliable. Hygienic.</p>
+              </div>
+            </div>
+            
+            {/* Description */}
+            <p className={styles.description}>
+              Professional septic tank cleaning and drain care services in Visakhapatnam with modern equipment and experienced team.
+            </p>
+            
+            {/* Feature Grid */}
+            <div className={styles.featureGrid}>
+              
+              <div className={styles.featureItem}>
+                <div className={styles.iconWrapper}>
+                  <Clock size={28} className={styles.icon} />
+                </div>
+                <div className={styles.featureText}>
+                  <h3>24/7 Service</h3>
+                  <p>We are always here for you</p>
+                </div>
+              </div>
+              
+              <div className={styles.featureItem}>
+                <div className={styles.iconWrapper}>
+                  <Users size={28} className={styles.icon} />
+                </div>
+                <div className={styles.featureText}>
+                  <h3>Expert Team</h3>
+                  <p>Trained & Experienced Professionals</p>
+                </div>
+              </div>
+              
+              <div className={styles.featureItem}>
+                <div className={styles.iconWrapper}>
+                  <Settings size={28} className={styles.icon} />
+                </div>
+                <div className={styles.featureText}>
+                  <h3>Advanced Equipment</h3>
+                  <p>Powerful Machines for Deep Cleaning</p>
+                </div>
+              </div>
+              
+              <div className={styles.featureItem}>
+                <div className={styles.iconWrapper}>
+                  <ShieldCheck size={28} className={styles.icon} />
+                </div>
+                <div className={styles.featureText}>
+                  <h3>Safe & Hygienic</h3>
+                  <p>Your Safety, Our Priority</p>
+                </div>
+              </div>
+              
+            </div>
+            
+            {/* CTA Section */}
+            <div className={styles.ctaGroup}>
+              <a href={`tel:${BUSINESS.phone}`} className={styles.primaryBtn}>
+                <PhoneCall size={24} />
+                <span>CALL {BUSINESS.phone}</span>
+              </a>
+              
+              <a href="#services" className={styles.secondaryBtn}>
+                <span>Our Services</span>
+                <ArrowRight size={20} />
+              </a>
+            </div>
+            
           </div>
-          <div className={styles.featureItem}>
-            <ShieldCheck size={32} className={styles.featureIcon} />
-            <div className={styles.featureTextWrapper}>
-              <span className={styles.featureTitle}>EXPERT TEAM</span>
-              <span className={styles.featureDesc}>Trained & Experienced Professionals</span>
-            </div>
-          </div>
-          <div className={styles.featureItem}>
-            <Settings size={32} className={styles.featureIcon} />
-            <div className={styles.featureTextWrapper}>
-              <span className={styles.featureTitle}>ADVANCED EQUIPMENT</span>
-              <span className={styles.featureDesc}>Powerful Machines for Deep Cleaning</span>
-            </div>
-          </div>
-          <div className={styles.featureItem}>
-            <Leaf size={32} className={styles.featureIcon} />
-            <div className={styles.featureTextWrapper}>
-              <span className={styles.featureTitle}>SAFE & HYGIENIC</span>
-              <span className={styles.featureDesc}>Your Safety, Our Priority</span>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.floatingBoxRight}>
-          <div className={styles.trustedTop}>
-            <ShieldCheck size={48} className={styles.trustedIcon} />
-            <div>
-              <div className={styles.trustedTitle}>VISAKHAPATNAM'S<br/>MOST TRUSTED</div>
-              <div className={styles.trustedHighlight}>SEPTIC TANK CLEANING SERVICE</div>
-            </div>
-          </div>
-          <div className={styles.trustedBottom}>
-            <div className={styles.trustedSector}>
-              <Home size={16} /> RESIDENTIAL
-            </div>
-            <div className={styles.trustedSector}>
-              <Building2 size={16} /> COMMERCIAL
-            </div>
-            <div className={styles.trustedSector}>
-              <Factory size={16} /> INDUSTRIAL
-            </div>
-          </div>
+          
+          {/* Right Column: Empty to show background */}
+          <div className={styles.emptyColumn}></div>
+          
         </div>
       </div>
     </section>
