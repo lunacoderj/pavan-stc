@@ -1,32 +1,70 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle } from 'lucide-react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { ArrowLeft, CheckCircle, AlertTriangle } from 'lucide-react';
 import { services } from '../data/services';
 import { CTAButton } from '../components/common/CTAButton';
 import { buildWhatsAppLink } from '../utils/whatsapp';
+import { SeoHead } from '../components/common/SeoHead';
+import { siteSeo } from '../siteSeo';
 import styles from './ServiceDetailPage.module.css';
 
 export function ServiceDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [service, setService] = useState(null);
+  const [isNotFound, setIsNotFound] = useState(false);
 
   useEffect(() => {
     const found = services.find(s => s.id === id);
     if (found) {
       setService(found);
+      setIsNotFound(false);
     } else {
-      // Handle not found
-      navigate('/');
+      setIsNotFound(true);
     }
-  }, [id, navigate]);
+  }, [id]);
+
+  if (isNotFound) {
+    return (
+      <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '2rem' }}>
+        <SeoHead
+          title="Service Not Found | Pavan Septic Tank Cleaning"
+          description="The requested drainage or septic service was not found. Return to Pavan Septic Tank Cleaning Visakhapatnam."
+          canonicalPath={`/services/${id || 'not-found'}`}
+          noIndex={true}
+        />
+        <div style={{ background: '#fef3c7', color: '#d97706', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+          <AlertTriangle size={32} />
+        </div>
+        <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#1e293b', marginBottom: '0.75rem' }}>Service Not Found</h1>
+        <p style={{ color: '#64748b', maxWidth: '420px', marginBottom: '1.5rem' }}>
+          Looking for drainage and septic cleaning services in Visakhapatnam? Check out our full list of services on the homepage.
+        </p>
+        <Link
+          to="/"
+          style={{ background: '#0284c7', color: '#ffffff', padding: '0.75rem 1.5rem', borderRadius: '0.5rem', fontWeight: 600, textDecoration: 'none' }}
+        >
+          Back to Home
+        </Link>
+      </div>
+    );
+  }
 
   if (!service) return null;
+
+  const matchedRoute = siteSeo.routes.find((r) => r.path === `/services/${id}`);
+  const pageTitle = matchedRoute?.title || `${service.title} in Visakhapatnam | Pavan Septic Tank Cleaning`;
+  const pageDescription = matchedRoute?.description || `${service.description} Fast vacuum truck response, deep cleaning for homes, apartments, and businesses.`;
 
   const Icon = service.icon;
 
   return (
     <main className={styles.page}>
+      <SeoHead
+        title={pageTitle}
+        description={pageDescription}
+        canonicalPath={`/services/${service.id}`}
+      />
       <div className={styles.hero}>
         <div className={`container ${styles.heroContainer}`}>
           <button onClick={() => navigate('/')} className={styles.backBtn}>

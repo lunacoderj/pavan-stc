@@ -1,11 +1,20 @@
 import React from 'react';
 import { Shield, Wrench, Leaf, Heart, ArrowRight, CheckCircle, Users, Award, Clock } from 'lucide-react';
 import { CTAButton } from '../components/common/CTAButton';
+import { SeoHead } from '../components/common/SeoHead';
+import { siteSeo } from '../siteSeo';
 import styles from './AboutPage.module.css';
 
 export function AboutPage() {
+  const aboutSeo = siteSeo.routes.find((r) => r.path === '/about');
+
   return (
     <main className={styles.aboutPage}>
+      <SeoHead
+        title={aboutSeo?.title}
+        description={aboutSeo?.description}
+        canonicalPath="/about"
+      />
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroOverlay}></div>

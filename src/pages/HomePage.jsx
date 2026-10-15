@@ -8,10 +8,19 @@ import { Coverage } from '../components/sections/Coverage';
 import { Testimonials } from '../components/sections/Testimonials';
 import { FAQ } from '../components/sections/FAQ';
 import { ContactCTA } from '../components/sections/ContactCTA';
+import { SeoHead } from '../components/common/SeoHead';
+import { siteSeo } from '../siteSeo';
 
 export function HomePage() {
+  const homeSeo = siteSeo.routes[0];
+
   return (
     <main>
+      <SeoHead
+        title={homeSeo.title}
+        description={homeSeo.description}
+        canonicalPath="/"
+      />
       <Hero />
       <Services />
       <Coverage />
